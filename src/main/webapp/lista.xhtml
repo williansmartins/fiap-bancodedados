@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <title>Brain</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+	    <link href="css/estilos.css" rel="stylesheet" type="text/css" />
+	    <link href="css/brain.css" rel="stylesheet" type="text/css" />
+				
+	</h:head>
+	<body> 
+		<div class="wrapper" >                  
+     		<div id="menu"> 
+	        </div>	
+	          <div id="vitrine">
+	          </div>
+		      <div id="palco">
+		      	<div id="conteudo">
+						
+					<h1 class="centro">Listagem de Pedidos</h1>
+					
+					<h:form id="form" role="form" class="table-responsive">
+			    		<h:dataTable value="#{pedidos.pedidoList}" var="o"
+			    			styleClass="table table-striped tabela"
+			    			headerClass="order-table-header"
+			    			rowClasses="order-table-odd-row,order-table-even-row" >
+			 
+			    			<h:column>
+			    				<f:facet name="header">ID</f:facet>
+			    				#{o.id}
+			    			</h:column>
+			    			
+			    			<h:column>
+			    				<!-- column header -->
+			    				<f:facet name="header">Nome</f:facet>
+			    				<!-- row record -->
+			    				#{o.nome}
+			    			</h:column>
+			 
+			    			<h:column>
+			    				<f:facet name="header">Lanche</f:facet>
+			    				#{o.lanche}
+			    			</h:column>
+			 
+			    			<h:column>
+			    				<f:facet name="header">Bebida</f:facet>
+			    				#{o.bebida}
+			    			</h:column>
+			 
+			    			<h:column>
+			    				<f:facet name="header">Ações</f:facet>
+			    				<h:commandButton styleClass="btn btn-success" value="Edit"  action="#{pedidos.incAlt()}">
+			    					<f:setPropertyActionListener target="#{pedidos.pedido}" value="#{o}"></f:setPropertyActionListener>
+			    				</h:commandButton>
+			    				 &nbsp;
+			    				<h:commandButton styleClass="btn btn-danger" value="Delete" action="#{pedidos.remove()}">
+			    					<f:setPropertyActionListener target="#{pedidos.pedido}" value="#{o}"></f:setPropertyActionListener>
+			    				</h:commandButton>
+			    			</h:column>
+			 
+			 
+			    		</h:dataTable>
+						
+	    				<h:commandButton styleClass="btn btn-primary" value="Insert" action="#{pedidos.prepareInsert}" />	
+	    				&nbsp;
+	    				<h:commandButton styleClass="btn btn-primary" value="Home" action="#{pedidos.home}" />	
+					</h:form>
+		      	</div>
+		       	<div id="footer">
+		      	</div>
+		  	</div>
+	  	</div>
+	  	<script src="http://code.jquery.com/jquery.js"></script>
+		<script>window.jQuery || document.write('<script src="js/jquery-2.0.0.min.js"></script>')</script>
+    	<script src="js/bootstrap.min.js"></script>
+    	<script src="js/scripts.js"></script>
+	</body>
+</html>

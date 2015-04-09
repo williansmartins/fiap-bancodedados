@@ -1,0 +1,20 @@
+.form1{
+	margin: 0 auto;
+	width: 300px;
+}
+#conteudo{
+	width: 700px;
+	margin: 0 auto;
+}
+h1.centro{
+	text-align: center;
+}
+.centro{
+	text-align: center;
+}
+.tabela{
+	width: 700px;
+	height: 250px!important;
+/* 	outline: solid 1px red; */
+	overflow: auto;
+}
